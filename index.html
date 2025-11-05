@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>Mortgage Loan Calculator</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Correct: stylesheet filename matches "style.css" -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -14,6 +15,7 @@
     </header>
 
     <div class="grid">
+      <!-- Input card -->
       <div class="card">
         <h2>Inputs</h2>
         <div class="fields">
@@ -69,9 +71,63 @@
         <div class="note">Extra payments are applied directly to principal each period.</div>
       </div>
 
+      <!-- Summary card -->
       <div class="card">
         <h2>Summary</h2>
         <div class="stats">
           <div class="stat">
             <div class="k">Monthly payment</div>
-            <div class="v" id="monthlyPayment">
+            <div class="v" id="monthlyPayment">—</div>
+          </div>
+          <div class="stat">
+            <div class="k">Total interest</div>
+            <div class="v" id="totalInterest">—</div>
+          </div>
+          <div class="stat">
+            <div class="k">Payoff date</div>
+            <div class="v" id="payoffDate">—</div>
+          </div>
+        </div>
+        <div class="footer right">
+          <span class="pill" id="periodLabel">Period: Monthly</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Amortization table -->
+    <div class="card" style="margin-top: 16px;">
+      <h2>Amortization schedule</h2>
+      <div class="note">Scroll to view all periods. Totals reflect extra payments if set.</div>
+      <div style="overflow:auto; max-height: 420px; border: 1px solid var(--border); border-radius: 10px; margin-top: 10px;">
+        <table id="amortTable">
+          <thead>
+            <tr>
+              <th>Period</th>
+              <th>Date</th>
+              <th>Payment</th>
+              <th>Interest</th>
+              <th>Principal</th>
+              <th>Extra</th>
+              <th>Balance</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2">Totals</td>
+              <td id="totPayment">$0</td>
+              <td id="totInterest">$0</td>
+              <td id="totPrincipal">$0</td>
+              <td id="totExtra">$0</td>
+              <td></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Correct: script filename matches "script.js" -->
+  <script src="script.js"></script>
+</body>
+</html>
