@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mortgage Loan Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Mortgage Loan Calculator</h1>
+      <span class="sub">Monthly payment, amortization, and extra payment impacts</span>
+    </header>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Inputs</h2>
+        <div class="fields">
+          <div>
+            <label>Loan amount</label>
+            <div class="input">
+              <span>$</span>
+              <input id="loanAmount" type="number" min="0" step="1000" placeholder="300000" />
+            </div>
+          </div>
+          <div>
+            <label>Annual interest rate (APR)</label>
+            <div class="input">
+              <input id="annualRate" type="number" min="0" step="0.01" placeholder="6.5" />
+              <span>%</span>
+            </div>
+          </div>
+          <div>
+            <label>Term length</label>
+            <div class="input">
+              <input id="termYears" type="number" min="1" max="40" step="1" placeholder="30" />
+              <span>years</span>
+            </div>
+          </div>
+          <div>
+            <label>Extra payment (optional)</label>
+            <div class="input">
+              <span>$</span>
+              <input id="extraPayment" type="number" min="0" step="10" placeholder="0" />
+            </div>
+          </div>
+          <div>
+            <label>Start date (for schedule)</label>
+            <div class="input">
+              <input id="startDate" type="month" />
+            </div>
+          </div>
+          <div>
+            <label>Compounding</label>
+            <div class="input">
+              <select id="compounding">
+                <option value="monthly" selected>Monthly</option>
+                <option value="biweekly">Biweekly (accelerated)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="actions">
+          <button id="calcBtn">Calculate</button>
+          <button class="secondary" id="resetBtn">Reset</button>
+        </div>
+        <div id="error" class="warn" style="display:none;"></div>
+        <div class="note">Extra payments are applied directly to principal each period.</div>
+      </div>
+
+      <div class="card">
+        <h2>Summary</h2>
+        <div class="stats">
+          <div class="stat">
+            <div class="k">Monthly payment</div>
+            <div class="v" id="monthlyPayment">
